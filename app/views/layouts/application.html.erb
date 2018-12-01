@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TrabalhoFinal</title>
+  <title>Shopping List</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body cz-shortcut-listen="true">
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Shopping List</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item <%="active" if controller_name == "users" %>">
+          <%= link_to 'Users', users_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item <%="active" if controller_name == "shopping_lists" %>">
+          <%= link_to 'Shopping Lists', shopping_lists_path, class: 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
-<%= yield %>
+<main class="container" role="main">
+  <% if flash.alert %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%=flash.alert%>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>  
+  <% elsif flash.notice %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%=flash.notice%>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+  <%= yield %>
+</main>
 
 </body>
 </html>

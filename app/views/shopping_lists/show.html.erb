@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h1>Show Shopping List</h1>
 
 <p>
   <strong>Date:</strong>
@@ -15,10 +15,10 @@
   <%= @shopping_list.user.name %>
 </p>
 
-<table>
-  <tr>
-    <th>Products:</th>
-  </tr>
+<p>
+  <strong>Products:</strong>
+</p>
+<table class="table">
   <% @shopping_list.products.each do |product| %>
     <tr>
         <td><%= product.title %></td>

@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import "font-awesome";
+
+ main {
+     margin-top: 56px;
+ }
+
+.btn:visited {
+     color: #fff !important;
+ }
