@@ -1,0 +1,35 @@
+<%= form_for(@shopping_list) do |f| %>
+  <% if @shopping_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shopping_list.errors.count, "error") %> prohibited this shopping_list from being saved:</h2>
+
+      <ul>
+      <% @shopping_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :is_purchased %><br>
+    <%= f.check_box :is_purchased %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.collection_select :user_id, @users, :id, :name %>
+  </div>
+  <div class="fields">
+    <%= f.fields_for :products do |builder| %>
+    <%= render "product_fields", f: builder %>
+    <% end %>
+    <p><%= link_to_add_fields "Add Product", f, :products %></p>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

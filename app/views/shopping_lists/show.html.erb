@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @shopping_list.date %>
+</p>
+
+<p>
+  <strong>Is purchased:</strong>
+  <%= @shopping_list.is_purchased %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @shopping_list.user.name %>
+</p>
+
+<table>
+  <tr>
+    <th>Products:</th>
+  </tr>
+  <% @shopping_list.products.each do |product| %>
+    <tr>
+        <td><%= product.title %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Edit', edit_shopping_list_path(@shopping_list) %> |
+<%= link_to 'Back', shopping_lists_path %>

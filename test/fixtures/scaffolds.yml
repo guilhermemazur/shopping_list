@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Product: MyString
+  title: MyString
+  last_price: 1.5
+  created_at: 2018-12-01 11:31:46
+  updated_at: 2018-12-01 11:31:46
+
+two:
+  Product: MyString
+  title: MyString
+  last_price: 1.5
+  created_at: 2018-12-01 11:31:46
+  updated_at: 2018-12-01 11:31:46
